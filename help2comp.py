@@ -32,7 +32,7 @@ $argument_list
 _arguments -s $arguments
 """
 
-ARGUMENT_TEMPLATE = """    '($opts)'{$opts_comma}'[$description]$style'"""
+ARGUMENT_TEMPLATE = """    {$opts}'[$description]$style'"""
 SINGLE_ARGUMENT_TEMPLATE = """    '$opt[$description]$style'"""
 
 
@@ -104,8 +104,7 @@ def generate_argument_list(options):
         model['description'] = _escape(opts[-1])
         model['style'] = ""
         if (len(opts) > 2):
-            model['opts'] = " ".join(opts[:-1])
-            model['opts_comma'] = ",".join(opts[:-1])
+            model['opts'] = ",".join(opts[:-1])
             argument_list.append(Template(ARGUMENT_TEMPLATE).safe_substitute(model))
         elif (len(opts) == 2):
             model['opt'] = opts[0]
