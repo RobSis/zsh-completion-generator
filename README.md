@@ -28,9 +28,11 @@ to your `.zshrc`.
     $ cd ~/.zsh/
     $ git clone git://github.com/RobSis/zsh-completion-generator.git
 
-* Source the script **at the end** of `~/.zshrc`:
+* Source the script **before compinit** in your `~/.zshrc`:
 
-    $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+    source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+    ...
+    compinit
 
 
 How to use
