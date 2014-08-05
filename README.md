@@ -25,14 +25,17 @@ to your `.zshrc`.
 ### Manually
 * Download the script or clone this repository:
 
-    $ cd ~/.zsh/
-    $ git clone git://github.com/RobSis/zsh-completion-generator.git
+    `$ cd ~/.zsh/`
+    
+    `$ git clone git://github.com/RobSis/zsh-completion-generator.git`
 
 * Source the script **before compinit** in your `~/.zshrc`:
 
-    source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
-    ...
-    compinit
+    `source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh`
+    
+    `...`
+    
+    `compinit`
 
 
 How to use
