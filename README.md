@@ -32,6 +32,21 @@ to your `.zshrc`.
 
     $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
 
+#### Custom zsh completion folder
+If you want to use a different folder than the default one for completion files, you can export the GENCOMPL_FPATH variable before sourcing the plugin :
+
+    $ GENCOMPL_FPATH = $HOME/.zsh/complete
+    $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+
+
+
+#### Custom python version
+If you ant to use a specific python interpreter name, you can export the GENCOMPL_PY variable before sourcing the plugin :
+
+    $ GENCOMPL_PY = python2
+    $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+
+Please note that currently python 3 is not supported.
 
 How to use
 ----------
