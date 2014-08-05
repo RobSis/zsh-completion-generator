@@ -1,5 +1,6 @@
 #!/usr/bin/env zsh
 
+date +%H:%M:%S.%N
 # Parse getopt-style help texts for options
 # and generate zsh(1) completion functions.
 # http://github.com/RobSis/zsh-completion-generator
@@ -8,6 +9,8 @@ SCRIPT_SOURCE=$(/bin/readlink -f ${0%/*})
 directory="$SCRIPT_SOURCE/completions"
 # don't overwrite existing functions
 fpath=($fpath $directory)
+
+mkdir -p $directory
 
 # which python to use
 python=python
@@ -47,3 +50,4 @@ gencomp() {
     $1 $help 2>&1 | $python $SCRIPT_SOURCE/help2comp.py $1 > $directory/_$1 || ( rm -f $directory/_$1 &&\
         echo "No options found for '$1'." )
 }
+date +%H:%M:%S.%N
