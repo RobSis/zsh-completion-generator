@@ -6,14 +6,23 @@
 # http://github.com/RobSis/zsh-completion-generator
 
 SCRIPT_SOURCE=$(/bin/readlink -f ${0%/*})
-directory="$SCRIPT_SOURCE/completions"
+
+if [ -z $GENCOMPL_FPATH ]; then
+    directory="$SCRIPT_SOURCE/completions"
+else
+    directory="$GENCOMPL_FPATH"
+fi
 # don't overwrite existing functions
 fpath=($fpath $directory)
 
+# which python to use
+if [ -z $GENCOMPL_PY ]; then
+    python=python
+else
+    python=$GENCOMPL_PY
+fi
 mkdir -p $directory
 
-# which python to use
-python=python
 
 # define default programs here:
 programs=( "cat" "nl" "tr" "df --help" )
