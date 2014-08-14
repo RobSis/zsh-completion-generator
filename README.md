@@ -31,7 +31,7 @@ to your `.zshrc`.
 
 * Source the script **before compinit** in your `~/.zshrc`:
 
-    `source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh`
+    `source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh`
     
     `...`
     
@@ -41,7 +41,7 @@ to your `.zshrc`.
 If you want to use a different folder than the default one for completion files, you can export the GENCOMPL_FPATH variable before sourcing the plugin :
 
     $ GENCOMPL_FPATH = $HOME/.zsh/complete
-    $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+    $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
 
 
 
@@ -49,7 +49,7 @@ If you want to use a different folder than the default one for completion files,
 If you ant to use a specific python interpreter name, you can export the GENCOMPL_PY variable before sourcing the plugin :
 
     $ GENCOMPL_PY = python2
-    $ source $HOME/.zsh/zsh-completion-generator/zsh-syntax-highlighting.plugin.sh
+    $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
 
 Please note that currently python 3 is not supported.
 
