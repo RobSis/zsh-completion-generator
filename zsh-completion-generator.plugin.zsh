@@ -6,7 +6,7 @@
 # http://github.com/RobSis/zsh-completion-generator
 
 if [[ "$(uname -s)" = "Darwin" ]]; then
-    SCRIPT_SOURCE=$(dirname ${0})
+    SCRIPT_SOURCE=$(builtin cd "$(dirname "$(readlink "$0" || echo "$0")")"; pwd)
 else
     SCRIPT_SOURCE=$(/bin/readlink -f ${0%/*})
 fi
