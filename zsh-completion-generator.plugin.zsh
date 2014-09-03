@@ -5,11 +5,7 @@
 # and generate zsh(1) completion functions.
 # http://github.com/RobSis/zsh-completion-generator
 
-if [[ "$(uname -s)" = "Darwin" ]]; then
-    SCRIPT_SOURCE=$(builtin cd "$(dirname "$(readlink "$0" || echo "$0")")"; pwd)
-else
-    SCRIPT_SOURCE=$(/bin/readlink -f ${0%/*})
-fi
+SCRIPT_SOURCE=$(builtin cd "$(dirname "$(readlink "$0" || echo "$0")")"; pwd)
 
 if [ -z $GENCOMPL_FPATH ]; then
     directory="$SCRIPT_SOURCE/completions"
