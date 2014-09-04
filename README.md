@@ -7,8 +7,8 @@ Generating zsh completion function from getopt-style help text.
 Motivation
 ----------
 Writing completion functions is boring, plus they deprecate when
-the software updates the CLI. This plugin tries to read list of options
-from help text of the program and generate completion function automatically.
+the software updates the CLI. This plugin tries to read the list of options
+from the help text of the program and generate a completion function automatically.
 
 It's a best-effort service, not guaranteed to work in all cases.
 Completion functions already defined (that somebody actually took time to write)
