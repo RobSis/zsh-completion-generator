@@ -20,7 +20,7 @@ How to install
 ### Using antigen
 
 After installing antigen put `antigen bundle RobSis/zsh-completion-generator`
-to your `.zshrc`.
+into your `.zshrc`.
 
 ### Manually
 * Download the script or clone this repository:
