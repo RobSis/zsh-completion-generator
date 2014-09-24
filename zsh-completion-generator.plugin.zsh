@@ -5,8 +5,7 @@
 # and generate zsh(1) completion functions.
 # http://github.com/RobSis/zsh-completion-generator
 
-SCRIPT_SOURCE=$(builtin cd "$(dirname "$(readlink "$0" || echo "$0")")"; pwd)
-
+SCRIPT_SOURCE=${0:A:h}
 if [ -z $GENCOMPL_FPATH ]; then
     directory="$SCRIPT_SOURCE/completions"
 else
