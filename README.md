@@ -11,7 +11,7 @@ the software updates the CLI. This plugin tries to read the list of options
 from the help text of the program and generate a completion function automatically.
 
 It's a best-effort service, not guaranteed to work in all cases.
-Completion functions already defined (that somebody actually took time to write)
+Completion functions already defined (and are therefore more thought out)
 are not overridden by this plugin.
 
 
@@ -60,6 +60,7 @@ generate them from the shell:
 
     $ gencomp nl
     $ source ~/.zshrc
+    $ nl -[TAB]
 
 
 Licence
