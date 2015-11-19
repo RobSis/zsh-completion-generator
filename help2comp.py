@@ -132,6 +132,6 @@ if __name__ == "__main__":
         if (len(options) == 0):
             sys.exit(2)
 
-        print generate_completion_function(options, sys.argv[1])
+        print(generate_completion_function(options, sys.argv[1]))
     else:
-        print "Please specify program name."
+        print("Please specify program name.")
