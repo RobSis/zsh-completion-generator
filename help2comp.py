@@ -26,14 +26,14 @@ local arguments
 
 arguments=(
 $argument_list
-    '*:filename:_files'
+  '*:filename:_files'
 )
 
 _arguments -s $arguments
 """
 
-ARGUMENT_TEMPLATE = """    {$opts}'[$description]$style'"""
-SINGLE_ARGUMENT_TEMPLATE = """    '$opt[$description]$style'"""
+ARGUMENT_TEMPLATE = """  {$opts}'[$description]$style'"""
+SINGLE_ARGUMENT_TEMPLATE = """  '$opt[$description]$style'"""
 
 
 def cut_option(line):
@@ -101,7 +101,10 @@ def generate_argument_list(options):
         model = {}
         # remove unescapable chars.
 
-        model['description'] = _escape(opts[-1])
+	desc = list(_escape(opts[-1]))
+	if len(desc) > 1 and desc[1].islower():
+	    desc[0] = desc[0].lower()
+        model['description'] = "".join(desc)
         model['style'] = ""
         if (len(opts) > 2):
             model['opts'] = ",".join(opts[:-1])
