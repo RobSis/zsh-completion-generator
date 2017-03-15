@@ -27,6 +27,7 @@ mkdir -p $ZSH_COMPLETION_GENERATOR_DIR
 local programs
 programs=( "cat" "nl" "tr" "df --help" )
 
+local prg
 for prg in "${programs[@]}"; do
     local name=$prg
     local help=--help
