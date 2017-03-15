@@ -1,36 +1,37 @@
 #!/usr/bin/env zsh
 
-#date +%H:%M:%S.%N
+# date +%H:%M:%S.%N   # profiling info
 # Parse getopt-style help texts for options
 # and generate zsh(1) completion functions.
 # http://github.com/RobSis/zsh-completion-generator
 
-SCRIPT_SOURCE=${0:A:h}
+ZSH_COMPLETION_GENERATOR_SRCDIR=${0:A:h}
 if [ -z $GENCOMPL_FPATH ]; then
-    directory="$SCRIPT_SOURCE/completions"
+    ZSH_COMPLETION_GENERATOR_DIR="$ZSH_COMPLETION_GENERATOR_SRCDIR/completions"
 else
-    directory="$GENCOMPL_FPATH"
+    ZSH_COMPLETION_GENERATOR_DIR="$GENCOMPL_FPATH"
 fi
 # don't overwrite existing functions
-fpath=($fpath $directory)
+fpath=($fpath $ZSH_COMPLETION_GENERATOR_DIR)
 
 # which python to use
+local python
 if [ -z $GENCOMPL_PY ]; then
     python=python
 else
     python=$GENCOMPL_PY
 fi
-mkdir -p $directory
-
+mkdir -p $ZSH_COMPLETION_GENERATOR_DIR
 
 # define default programs here:
+local programs
 programs=( "cat" "nl" "tr" "df --help" )
 
-
 for prg in "${programs[@]}"; do
-    name=$prg
-    help=--help
+    local name=$prg
+    local help=--help
     if [[ $prg =~ " " ]]; then
+        local i
         i=( "${(s/ /)prg}" )
         name=$i[1]
         if [ -n "$i[2]" ]; then
@@ -38,8 +39,9 @@ for prg in "${programs[@]}"; do
         fi
     fi
 
-    test -f $directory/_$name ||\
-        $name $help 2>&1 | $python $SCRIPT_SOURCE/help2comp.py $name > $directory/_$name || rm -f $directory/_$name
+    test -f $ZSH_COMPLETION_GENERATOR_DIR/_$name ||\
+        $name $help 2>&1 | $python $ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py $name >\
+            $ZSH_COMPLETION_GENERATOR_DIR/_$name || rm -f $ZSH_COMPLETION_GENERATOR_DIR/_$name
 done
 
 # or use function in shell:
@@ -50,12 +52,13 @@ gencomp() {
         return 1
     fi
 
-    help=--help
+    local help=--help
     if [ -n "$2" ]; then
         help=$2
     fi
 
-    $1 $help 2>&1 | $python $SCRIPT_SOURCE/help2comp.py $1 > $directory/_$1 || ( rm -f $directory/_$1 &&\
-        echo "No options found for '$1'." )
+    $1 $help 2>&1 | $python $ZSH_COMPLETION_GENERATOR_SRCDIR/help2comp.py $1 >\
+        $ZSH_COMPLETION_GENERATOR_DIR/_$1 || ( rm -f $ZSH_COMPLETION_GENERATOR_DIR/_$1 &&\
+            echo "No options found for '$1'." )
 }
-#date +%H:%M:%S.%N   # profiling info
+# date +%H:%M:%S.%N   # profiling info
