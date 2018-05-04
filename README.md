@@ -40,7 +40,7 @@ into your `.zshrc`.
 #### Custom zsh completion folder
 If you want to use a different folder than the default one for completion files, you can export the GENCOMPL_FPATH variable before sourcing the plugin :
 
-    $ GENCOMPL_FPATH = $HOME/.zsh/complete
+    $ GENCOMPL_FPATH=$HOME/.zsh/complete
     $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
 
 
@@ -48,20 +48,26 @@ If you want to use a different folder than the default one for completion files,
 #### Custom python version
 If you ant to use a specific python interpreter name, you can export the GENCOMPL_PY variable before sourcing the plugin :
 
-    $ GENCOMPL_PY = python2
+    $ GENCOMPL_PY=python2
     $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
 
 Please note that currently python 3 is not supported.
 
 How to use
 ----------
-You must edit the plugin to change the list of programs, or you can
-generate them from the shell:
+Provide default program list by (example):
 
-    $ gencomp nl
-    $ source ~/.zshrc
-    $ nl -*[TAB]* -> magic
+```zsh
+zstyle :plugin:zsh-completion-generator programs   ggrep tr cat
+```
 
+The plugin will create completions for those programs at load time, once.
+You can also generate completions from the shell, by using provided `gencomp`
+function:
+
+    $ gencomp ggrep
+    $ source ~/.zshrc # or run `compinit'
+    $ ggrep -*[TAB]* -> magic
 
 Licence
 -------
