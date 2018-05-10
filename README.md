@@ -46,12 +46,11 @@ If you want to use a different folder than the default one for completion files,
 
 
 #### Custom python version
-If you ant to use a specific python interpreter name, you can export the GENCOMPL_PY variable before sourcing the plugin :
+If you want to use a specific Python interpreter name, you can export the
+GENCOMPL_PY variable before sourcing the plugin :
 
     $ GENCOMPL_PY=python2
     $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
-
-Please note that currently python 3 is not supported.
 
 How to use
 ----------
