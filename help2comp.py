@@ -7,10 +7,8 @@
 
 # Usage: program --help | ./help2comp.py program_name
 
-import os
 import sys
 import re
-import argparse
 from string import Template
 
 
@@ -46,7 +44,7 @@ def cut_option(line):
     if len(opt) > 0:
         newline = line.replace(opt[0], "", 1).strip(STRIP_CHARS)
         # return without parameter
-        return newline, re.split('[\ \[=]', opt[0])[0]
+        return newline, re.split('[ [=]', opt[0], 1)[0]
     else:
         return newline, None
 
@@ -61,12 +59,12 @@ def parse_options(help_text):
     previous_description_missing = False
     for line in help_text:
         line = line.strip(STRIP_CHARS)
-        if re.match(r'^--?[a-zA-Z0-9]+', line) != None:  # starts with option
+        if re.match(r'^--?[a-zA-Z0-9]+', line):  # starts with option
             previous_description_missing = False
             options = []
             while True:
                 line, opt = cut_option(line)
-                if opt == None:
+                if opt is None:
                     break
 
                 options.append(opt)
@@ -87,7 +85,7 @@ def _escape(line):
     """
     Escape the syntax-breaking characters.
     """
-    line = line.replace('[','\[').replace(']','\]')
+    line = line.replace('[', r'\[').replace(']', r'\]')
     line = re.sub('\'', '', line)  # ' is unescapable afaik
     return line
 
@@ -101,9 +99,9 @@ def generate_argument_list(options):
         model = {}
         # remove unescapable chars.
 
-	desc = list(_escape(opts[-1]))
-	if len(desc) > 1 and desc[1].islower():
-	    desc[0] = desc[0].lower()
+        desc = list(_escape(opts[-1]))
+        if len(desc) > 1 and desc[1].islower():
+            desc[0] = desc[0].lower()
         model['description'] = "".join(desc)
         model['style'] = ""
         if (len(opts) > 2):
