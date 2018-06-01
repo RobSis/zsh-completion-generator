@@ -7,8 +7,8 @@
 
 # Fetch $0 according to plugin standard proposed at:
 # http://zdharma.org/Zsh-100-Commits-Club/Zsh-Plugin-Standard.html
-ZERO="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
-ZSH_COMPLETION_GENERATOR_SRCDIR=${ZERO:A:h}
+0="${${ZERO:-${0:#$ZSH_ARGZERO}}:-${(%):-%N}}"
+ZSH_COMPLETION_GENERATOR_SRCDIR=${0:A:h}
 
 if [ -z $GENCOMPL_FPATH ]; then
     ZSH_COMPLETION_GENERATOR_DIR="$ZSH_COMPLETION_GENERATOR_SRCDIR/completions"
