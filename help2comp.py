@@ -40,7 +40,7 @@ def cut_option(line):
     """
     # TODO: dare to make it regex-free?
     newline = line.strip(STRIP_CHARS)
-    opt = re.findall(r'^(-[a-zA-Z0-9\-]+(?:[\[\ =][^\-\ ][a-zA-Z\<\>\[\|\:\]\-\_\?#]*\]?)?)', line)
+    opt = re.findall(r'^(-[a-zA-Z0-9\-\_]+(?:[\[\ =][^\-\ ][a-zA-Z\<\>\[\|\:\]\-\_\?#]*\]?)?)', line)
     if len(opt) > 0:
         newline = line.replace(opt[0], "", 1).strip(STRIP_CHARS)
         # return without parameter
