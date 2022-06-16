@@ -22,6 +22,14 @@ How to install
 After installing antigen put `antigen bundle RobSis/zsh-completion-generator`
 into your `.zshrc`.
 
+### Using Fig
+
+[Fig](https://fig.io) adds apps, shortcuts, and autocomplete to your existing terminal.
+
+Install `zsh-completion-generator` in just one click.
+
+<a href="https://fig.io/plugins/other/zsh-completion-generator_RobSis" target="_blank"><img src="https://fig.io/badges/install-with-fig.svg" /></a>
+
 ### Manually
 * Download the script or clone this repository:
 
