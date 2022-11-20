@@ -21,7 +21,11 @@ fi
 # which python to use
 local python
 if [[ -z $GENCOMPL_PY ]]; then
-    python=python
+    if [[ -z "${commands[python]}" ]] && [[ -n "${commands[python3]}" ]]; then
+        python=python3
+    else
+        python=python
+    fi
 else
     python=$GENCOMPL_PY
 fi
