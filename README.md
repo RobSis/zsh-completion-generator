@@ -22,6 +22,12 @@ How to install
 After installing antigen put `antigen bundle RobSis/zsh-completion-generator`
 into your `.zshrc`.
 
+### Using zinit
+
+```
+zinit load RobSis/zsh-completion-generator
+```
+
 ### Using Fig
 
 [Fig](https://fig.io) adds apps, shortcuts, and autocomplete to your existing terminal.
@@ -46,7 +52,7 @@ Install `zsh-completion-generator` in just one click.
     `compinit`
 
 #### Custom zsh completion folder
-If you want to use a different folder than the default one for completion files, you can export the GENCOMPL_FPATH variable before sourcing the plugin :
+If you want to use a different folder than the default one (`completions/` within the plugin directory) for completion files, you can export the GENCOMPL_FPATH variable before sourcing the plugin :
 
     $ GENCOMPL_FPATH=$HOME/.zsh/complete
     $ source $HOME/.zsh/zsh-completion-generator/zsh-completion-generator.plugin.zsh
